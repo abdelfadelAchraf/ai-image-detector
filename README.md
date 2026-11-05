@@ -1,0 +1,1 @@
+This project aims to create an AI model, trained one that capable of detecting the AI generated images from the real ones.
