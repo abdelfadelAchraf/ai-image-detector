@@ -1,0 +1,25 @@
+# Secrets
+kaggle.json
+.env
+*.env
+
+# Données (jamais sur GitHub)
+data/
+cifake/
+*.zip
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+.ipynb_checkpoints/
+
+# Node / React
+node_modules/
+dist/
+frontend/.env
+
+# Système
+.DS_Store
+Thumbs.db
