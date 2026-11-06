@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  /* On supprime la palette par défaut : seules nos 3 couleurs existent */
+  --color-*: initial;
+  --color-ink: #0b0d10;
+  --color-paper: #ecebe4;
+  --color-signal: #ff4b1f;
+
+  --font-sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", "SF Mono", Consolas, monospace;
+
+  --animate-scan: scan 2s ease-in-out infinite;
+  @keyframes scan {
+    0%, 100% { top: 0%; }
+    50% { top: 100%; }
+  }
+}
+
+@layer base {
+  *, ::before, ::after { border-radius: 0; }   /* aucun arrondi */
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--color-signal); color: var(--color-ink); }
+  :focus-visible { outline: 2px solid var(--color-signal); outline-offset: 2px; }
+}
+
+/* Éléments du scanner */
+.scan-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-signal) 18%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-signal) 18%, transparent) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.scan-trail {
+  background: linear-gradient(to top, color-mix(in srgb, var(--color-signal) 35%, transparent), transparent);
+}
+.scan-line {
+  background: var(--color-signal);
+  box-shadow: 0 0 16px var(--color-signal);
+}
